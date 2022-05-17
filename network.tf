@@ -2,9 +2,7 @@
 # Virtual Network
 # ---------------------------------------------------------------------------------------------------------------------
 resource "azurerm_virtual_network" "this" {
-  name = format("vn-%s-%s-%s",
-  local.naming.location[var.location], var.environment, var.project)
-
+  name                = "${var.databricks_workspace_name}-vnet"
   location            = var.location
   resource_group_name = var.resource_group_name
 
@@ -63,7 +61,7 @@ resource "azurerm_subnet" "public" {
 resource "azurerm_network_security_group" "private" {
   name                = "${var.databricks_workspace_name}-nsg"
   resource_group_name = var.resource_group_name
-  location            = var.resource_group_name.location
+  location            = var.location
 }
 
 resource "azurerm_subnet_network_security_group_association" "private" {
@@ -75,7 +73,7 @@ resource "azurerm_subnet_network_security_group_association" "private" {
 resource "azurerm_network_security_group" "public" {
   name                = "${var.databricks_workspace_name}-pub-nsg"
   resource_group_name = var.resource_group_name
-  location            = var.resource_group_name.location
+  location            = var.location
 }
 
 resource "azurerm_subnet_network_security_group_association" "public" {
@@ -91,14 +89,14 @@ resource "azurerm_subnet_network_security_group_association" "public" {
 
 resource "azurerm_public_ip" "this" {
   name                = "${var.databricks_workspace_name}-pip"
-  location            = var.resource_group_name.location
+  location            = var.location
   resource_group_name = var.resource_group_name
   allocation_method   = "Static"
 }
 
 resource "azurerm_lb" "this" {
   name                = "${var.databricks_workspace_name}-lb"
-  location            = var.resource_group_name.location
+  location            = var.location
   resource_group_name = var.resource_group_name
 
   frontend_ip_configuration {
