@@ -1,20 +1,16 @@
 # ---------------------------------------------------------------------------------------------------------------------
-# Backend Section
-# ---------------------------------------------------------------------------------------------------------------------
-
-# ---------------------------------------------------------------------------------------------------------------------
 # Creating Azure Databricks workspace
 # ---------------------------------------------------------------------------------------------------------------------
 
 resource "azurerm_databricks_workspace" "this" {
-  name                = var.name
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  sku                 = var.sku
-  load_balancer_backend_address_pool_id = 
+  name                                  = var.databricks_workspace_name
+  resource_group_name                   = var.resource_group_name
+  location                              = var.location
+  sku                                   = var.sku
+  load_balancer_backend_address_pool_id = azurerm_public_ip.this.id
 
   # customer_managed_key_enabled = true
-  managed_resource_group_name = "${var.name}-rg"
+  # managed_resource_group_name = "${var.name}-rg"
 
   tags = var.tags
 }
@@ -29,7 +25,7 @@ data "databricks_node_type" "smallest" {
 }
 
 data "databricks_spark_version" "latest_lts" {
-  depends_on = [azurerm_databricks_workspace.this]
+  depends_on        = [azurerm_databricks_workspace.this]
   long_term_support = true
 }
 
@@ -57,6 +53,6 @@ resource "databricks_secret_scope" "kv" {
 
   keyvault_metadata {
     resource_id = var.key_vault_id
-    dns_name = var.key_vault_uri
+    dns_name    = var.key_vault_uri
   }
 }

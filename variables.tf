@@ -1,58 +1,39 @@
-variable "cdxp_ip_set" {
-  description = "A List of CDXP IPs to whitelist"
-  type        = list(string)
-  default = []
-}
-
-variable "cidr" {
-  description = "The CIDR block for the VPC. Default value is a valid CIDR"
-  type        = string
-  default = "10.0.0.0/16"
-}
-
-variable "costcenter" {
-  description = "cost center name to be used when tagging resources"
+variable "cluster_name" {
+  description = "Variable used to name the Databricks Cluster"
   type        = string
 }
 
-variable "env" {
-  description = "Environment name to be used when tagging resources"
+variable "databricks_workspace_name" {
+  description = "Specifies the name of the Databricks Workspace"
   type        = string
 }
 
-variable "public_subnets" {
-  description = "A list of public subnets inside the VPC"
-  type        = list(string)
-  default     = ["10.0.1.0/24", "10.0.2.0/24"]
-}
-
-variable "private_subnets" {
-  description = "A list of private subnets inside the VPC"
-  type        = list(string)
-  default     = ["10.0.3.0/24", "10.0.4.0/24"]
-}
-
-variable "prefix" {
-  description = "A prefix used for all resources in this example"
+variable "key_vault_id" {
+  description = "The ID of the Key Vault where the access policy should be created."
   type        = string
 }
 
-variable "region" {
-  description = "The AWS Region in which all resources in this example should be provisioned"
+variable "key_vault_uri" {
+  description = "The URI of the Key Vault where the access policy should be created."
+  type        = string
+}
+variable "location" {
+  description = "Specifies the supported Azure location where the resource exists."
   type        = string
 }
 
-variable "ssn" {
-  description = "ssn name to be used when tagging resources"
+variable "resource_group_name" {
+  description = "The name of the resource group in which to create"
   type        = string
 }
 
-variable "subowner" {
-  description = "subowner name to be used when tagging resources"
+variable "sku" {
+  description = "The sku to use for the Databricks Workspace. Possible values are standard, premium, or trial."
   type        = string
+  default     = "premium"
 }
 
-variable "user_defined" {
-  description = "the name used for all resources in this example"
-  type        = string
+variable "tags" {
+  description = "A map of tags to add"
+  type        = map(string)
 }

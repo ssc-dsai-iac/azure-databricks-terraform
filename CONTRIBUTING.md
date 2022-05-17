@@ -20,11 +20,11 @@ Pull requests are the best way to propose changes to the codebase, here are the 
 ## Any contributions you make will be under the MIT License
 In short, when you submit code changes, your submissions are understood to be under the same [MIT License](https://choosealicense.com/licenses/mit/) that covers the project. Feel free to contact the maintainers if that's a concern.
 
-## Report bugs using Github's [issues](https://github.com/SSC-DSAI-Terraform/azure-storage-account-terraform/issues)
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/SSC-DSAI-Terraform/azure-storage-account-terraform/issues);
+## Report bugs using Github's [issues](https://github.com/ssc-dsai-iac/azure-databricks-terraform/issues)
+We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/ssc-dsai-iac/azure-databricks-terraform/issues);
 
 ## Security Issue
-Do not post any security issues on the public repository! See [SECURITY.md](https://github.com/SSC-DSAI-Terraform/azure-storage-account-terraform/security/policy)
+Do not post any security issues on the public repository! See [SECURITY.md](https://github.com/ssc-dsai-iac/azure-databricks-terraform/security/policy)
 
 
 ## Write bug reports with detail, background, and sample code
@@ -64,11 +64,11 @@ Les demandes d'extraction sont le meilleur moyen de proposer des modifications �
 ## Toutes les contributions que vous faites seront sous la licence MIT
 En bref, lorsque vous soumettez des modifications de code, vos soumissions sont censées être sous la même [licence MIT](https://choosealicense.com/licenses/mit) qui couvre le projet. N'hésitez pas à contacter les responsables si cela vous préoccupe.
 
-## Signaler les bogues à l'aide des [problèmes](https://github.com/SSC-DSAI-Terraform/azure-storage-account-terraform/issues) de Github
-Nous utilisons les problèmes GitHub pour suivre les bogues publics. Signalez un bogue en [ouvrant un nouveau problème](https://github.com/SSC-DSAI-Terraform/azure-storage-account-terraform/issues)
+## Signaler les bogues à l'aide des [problèmes](https://github.com/ssc-dsai-iac/azure-databricks-terraform/issues) de Github
+Nous utilisons les problèmes GitHub pour suivre les bogues publics. Signalez un bogue en [ouvrant un nouveau problème](https://github.com/ssc-dsai-iac/azure-databricks-terraform/issues)
 
 ## Problème de sécurité
-Ne publiez aucun problème de sécurité sur le référentiel public ! Voir [SECURITY.md](https://github.com/SSC-DSAI-Terraform/azure-storage-account-terraform/security/policy)
+Ne publiez aucun problème de sécurité sur le référentiel public ! Voir [SECURITY.md](https://github.com/ssc-dsai-iac/azure-databricks-terraform/security/policy)
 
 
 ## Rédiger des rapports de bogues avec des détails, un arrière-plan et un exemple de code
