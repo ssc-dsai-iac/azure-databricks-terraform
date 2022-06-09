@@ -120,7 +120,7 @@ resource "azurerm_lb" "this" {
 
   frontend_ip_configuration {
     name                 = "DatabricksPublicIPAddress"
-    public_ip_address_id = azurerm_public_ip.this.id
+    public_ip_address_id = azurerm_public_ip.this[0].id
   }
 }
 
