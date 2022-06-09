@@ -7,10 +7,17 @@ resource "azurerm_databricks_workspace" "this" {
   resource_group_name                   = var.resource_group_name
   location                              = var.location
   sku                                   = var.sku
-  load_balancer_backend_address_pool_id = azurerm_public_ip.this.id
+  load_balancer_backend_address_pool_id = var.secure_cluster_connectivity ? azurerm_lb_backend_address_pool.this.id : null
+  managed_resource_group_name           = var.secure_cluster_connectivity ? var.databricks_workspace_name : "${var.name}-rg"
 
-  # customer_managed_key_enabled = true
-  # managed_resource_group_name = "${var.name}-rg"
+  dynamic "custom_parameters" {
+    count                                                = var.secure_cluster_connectivty ? 1 : 0
+    virtual_network_id                                   = azurerm_virtual_network.this.id
+    private_subnet_name                                  = azurerm_subnet.private.name
+    public_subnet_name                                   = azurerm_subnet.public.name
+    private_subnet_network_security_group_association_id = azurerm_subnet_network_security_group_association.private.id
+    public_subnet_network_security_group_association_id  = azurerm_subnet_network_security_group_association.public.id
+  }
 
   tags = var.tags
 }

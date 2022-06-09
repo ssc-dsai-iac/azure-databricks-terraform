@@ -37,3 +37,9 @@ variable "tags" {
   description = "A map of tags to add"
   type        = map(string)
 }
+
+variable "secure_cluster_connectivty" {
+  description = "Specifies whether to use secure cluster connectivty."
+  type        = bool
+  default     = false
+}
